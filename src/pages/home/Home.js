@@ -34,6 +34,7 @@ import otherBodies from '../../data/home/otherBodies'
 import recentUpdates from '../../data/home/recentUpdates'
 import sbgBudget from '../../data/home/sbgBudget'
 import weeklySession from '../../data/home/weeklySession'
+import { FaCalendar } from 'react-icons/fa'
 
 const opts = {
   height: '200',
@@ -154,10 +155,10 @@ class Home extends React.Component {
             <StatWidget
               theme="panel-yellow"
               icon={FaUsers}
-              count="122"
+              count="119"
               headerText="Elected Members"
               footerText="View Details"
-              href="https://docs.google.com/spreadsheets/d/1pOG6HOdyIJZkVVJIn9Sg_sPScM39fyDPlAVZVxpwFRw/edit?usp=sharing"
+              href="https://drive.google.com/file/d/1OZ4HwIQZuto1nIKp2XRbOmCMX1A6-8Oz/view?usp=sharing"
             />
           </div>
         </div>
@@ -239,8 +240,8 @@ class Home extends React.Component {
                     <LabeledPie
                       data={sbgBudget}
                       color="#f15854"
-                      innerRadius="50%"
-                      outerRadius="90%"
+                      innerRadius="60%"
+                      outerRadius="100%"
                     />
                     <h5 style={{ color: '#f15854' }}>
                       <center>{sbgBudget[0].name}</center>
@@ -405,39 +406,66 @@ class Home extends React.Component {
                 />
               </Panel.Body>
             </Panel>
+
             <Panel>
               <Panel.Heading>
-                <FaEdit /> Notable Activities
+                <FaCalendar /> Event Reports
               </Panel.Heading>
               <Panel.Body>
-                <ListGroup>
-                  {_.filter(recentUpdates, o => o.active).map((o, i) => {
-                    let timestamp = 'Today'
-                    const today = new Date()
-                    const dd = today.getDate() === o.date.getDate()
-                    const mm = today.getMonth() === o.date.getMonth()
-                    const yyyy = today.getFullYear() === o.date.getFullYear()
-                    const diff = Math.floor(
-                      (today.getTime() - o.date.getTime()) / 86400000
-                    )
-                    if (!dd || !mm || !yyyy) {
-                      if (diff === 1) {
-                        timestamp = `${diff} day ago`
-                      } else {
-                        timestamp = `${diff} days ago`
-                      }
-                    }
-                    return (
-                      <ListGroupItem key={i} href={o.link} target={'_blank'}>
-                        <i className="fa  fa-angle-double-right fa-fw" />{' '}
-                        {o.title}
-                        <span className="pull-right text-muted small">
-                          <em>{timestamp}</em>
-                        </span>
-                      </ListGroupItem>
-                    )
-                  })}
-                </ListGroup>
+                <div>
+                  <ul className="timeline">
+                    <li>
+                      <div className="timeline-badge">
+                        <FaCheck />
+                      </div>
+                      <div className="timeline-panel">
+                        <div className="timeline-heading">
+                          <h4 className="timeline-title">
+                            2019-20 Event Reports
+                          </h4>
+                        </div>
+                        <div className="timeline-body">
+                          <a
+                            target={'_blank'}
+                            rel={'noopener norefferer'}
+                            href={'#'}
+                          >
+                            Click to view
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="timeline-inverted">
+                      <div className="timeline-badge success">
+                        <FaCheck />
+                      </div>
+                      <div className="timeline-panel">
+                        <div className="timeline-heading">
+                          <h4 className="timeline-title">
+                            2018-19 Event Reports
+                          </h4>
+                        </div>
+                        <div className="timeline-body">
+                          <a
+                            target={'_blank'}
+                            rel={'noopener norefferer'}
+                            href={
+                              'https://drive.google.com/file/d/1-5DEke-QJ1m3stKh-B4HJQVhfiPbcyBS/view?usp=sharing'
+                            }
+                          >
+                            Click to view
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <MySmallModal
+                    heading={this.state.header}
+                    body={this.state.body}
+                    show={this.state.modalShow}
+                    onHide={this.modalClose}
+                  />
+                </div>
               </Panel.Body>
             </Panel>
 

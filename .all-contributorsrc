@@ -16,10 +16,10 @@
       ]
     },
     {
-      "login": "shadxx7",
+      "login": "statebait",
       "name": "Mohamed Shadab",
       "avatar_url": "https://avatars1.githubusercontent.com/u/22408263?v=4",
-      "profile": "https://shadxx7.github.io",
+      "profile": "https://statebait.github.io",
       "contributions": [
         "infra",
         "code"
@@ -89,11 +89,32 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "sanket143",
+      "name": "Sanket Chaudhari",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/26973649?v=4",
+      "profile": "https://sanket143.github.io",
+      "contributions": [
+        "content",
+        "code"
+      ]
+    },
+    {
+      "login": "Vishu26",
+      "name": "Srikumar Sastry",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/24605821?v=4",
+      "profile": "https://github.com/Vishu26",
+      "contributions": [
+        "content",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "sbg-daiict-website",
   "projectOwner": "ossdaiict",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
